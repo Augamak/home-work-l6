@@ -1,0 +1,41 @@
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blueviolet;
+    font-size: 40px;
+}
+
+.line {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 30px;
+}
+
+.person-line{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border: 1px solid blue;
+}
+
+.up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid blue;
+    padding: 0 12px;
+    cursor: pointer;
+}
