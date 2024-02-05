@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react'
 
 function App() {
-  const [persons, setPersons] = useState([{
-    name: '',
-    height: ''
-  }]);
+  const [persons, setPersons] = useState ([]);
   const [number, setNumber] = useState(1);
   const [character, setCharacter] = useState({
   name: '',
@@ -43,22 +40,21 @@ function App() {
   }, [number]);
 
 
- 
-
 
   useEffect(() => {
     fetch("https://swapi.dev/api/people/")
     .then((data) => data.json())
     .then((data) => {
-      setPersons(prev => ({
-        ...prev,
-        name: data.name,
-        height: data.height,
-        eye_color: data.eye_color,
-        gender: data.gender,
-      }))
+      setPersons(data.results)
+      
     })
   }, []);
+
+
+ 
+
+
+ 
   
   return (
     <div>
@@ -87,12 +83,13 @@ function App() {
         <p>All persons</p>
         <div className='personsCards'>
           {persons.map((person) => {
-            return (
-              <span className='persons' key={person.name}>
-                Name: {person.name}
-              </span>
-            );
-          })}
+          console.log(person)
+              return (
+                <span className='persons' key={person.name}>
+                  Name: {person.name}
+                </span>
+              )
+            })}
         </div>
       </div>
     </div>
