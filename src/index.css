@@ -39,3 +39,9 @@ body {
     padding: 0 12px;
     cursor: pointer;
 }
+
+.allCount{
+    width: 400px;
+    height: 500px;
+    background-color: aqua;
+}

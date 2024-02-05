@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [persons, setPersons] = useState([{
+    name: '',
+    height: ''
+  }]);
   const [number, setNumber] = useState(1);
   const [character, setCharacter] = useState({
   name: '',
@@ -39,14 +42,22 @@ function App() {
     })
   }, [number]);
 
-  useEffect(() => {
-    fetch(`https://swapi.dev/api/people/`)
-    .then((data) => data.json())
-    .then((data) => {
-      setCount(data.count)
-    })
-  }, [])
 
+ 
+
+
+  const getApiData = async () => {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/todos/"
+    ).then((response) => response.json())
+
+    setPersons(response)
+  }
+
+  useEffect(() => {
+    getApiData()
+  }, [])
+  
   return (
     <div>
       <div className="line">
@@ -69,6 +80,14 @@ function App() {
       <div className='person-line'>
         <span className='label'>Gender: </span> {" "}
         <span className=''>{character.gender}</span>
+      </div>
+      <div className='allCount'>
+        <p>All persons</p>
+        <span>Name:  </span>
+        {persons.map((person) => (
+            <span className='persons' key={person.name}>{person.name}</span>
+          
+          ))}
       </div>
     </div>
   )
