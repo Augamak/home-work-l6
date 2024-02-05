@@ -45,3 +45,21 @@ body {
     height: 500px;
     background-color: aqua;
 }
+
+.persons {
+    width: 200px;
+    height: 100px;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.personsCards {
+    width: 200px;
+    height: 100px;
+    border-right-color: yellowgreen;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

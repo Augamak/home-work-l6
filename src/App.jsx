@@ -48,7 +48,7 @@ function App() {
 
   const getApiData = async () => {
     const response = await fetch(
-      "https://jsonplaceholder.typicode.com/todos/"
+      "https://swapi.dev/api/people/"
     ).then((response) => response.json())
 
     setPersons(response)
@@ -83,11 +83,15 @@ function App() {
       </div>
       <div className='allCount'>
         <p>All persons</p>
-        <span>Name:  </span>
-        {persons.map((person) => (
-            <span className='persons' key={person.name}>{person.name}</span>
-          
-          ))}
+        <div className='personsCards'>
+          {persons.map((person) => {
+            return (
+              <span className='persons' key={person.name}>
+                Name: {person.name}
+              </span>
+            );
+          })}
+        </div>
       </div>
     </div>
   )
