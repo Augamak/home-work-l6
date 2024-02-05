@@ -46,17 +46,19 @@ function App() {
  
 
 
-  const getApiData = async () => {
-    const response = await fetch(
-      "https://swapi.dev/api/people/"
-    ).then((response) => response.json())
-
-    setPersons(response)
-  }
-
   useEffect(() => {
-    getApiData()
-  }, [])
+    fetch("https://swapi.dev/api/people/")
+    .then((data) => data.json())
+    .then((data) => {
+      setPersons(prev => ({
+        ...prev,
+        name: data.name,
+        height: data.height,
+        eye_color: data.eye_color,
+        gender: data.gender,
+      }))
+    })
+  }, []);
   
   return (
     <div>
